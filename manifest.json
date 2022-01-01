@@ -1,0 +1,27 @@
+{
+	"name": "Fresh Tomatoes",
+	"version": "1.0.0.0",
+	"manifest_version": 2,
+	"description": "An extension to improve the Rotten Tomatoes experience.",
+	"icons": {
+		"16": "icons/16x16.png",
+		"32": "icons/32x32.png",
+		"48": "icons/48x48.png",
+		"128": "icons/128x128.png"
+	},
+	"browser_action": {
+		"default_popup": "popup.html"
+	},
+	"content_scripts": [
+		{
+			"matches": ["*://*.rottentomatoes.com/*"],
+			"run_at": "document_start",
+			"js": ["content-scripts/style.js"]
+		},
+		{
+			"matches": ["*://*.rottentomatoes.com/*"],
+			"run_at": "document_end",
+			"js": ["content-scripts/shadow.js"]
+		}
+	]
+}
